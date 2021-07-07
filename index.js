@@ -21,9 +21,14 @@ const cf = require("cloudflare")({
 (async () => {
     const newIPAddress = await publicIP.v4();
 
+    if(!newIPAddress.match(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)) {
+        console.error("Received an invalid IP address from public-ip service. Rejecting input for security reasons");
+        process.exit(3);
+    }
+
     if(newIPAddress === oldIPAddress) {
         console.warn("no ip change");
-        process.exit(0)
+        process.exit(0);
     }
 
     dnsList.forEach((website) => {
@@ -61,7 +66,7 @@ const cf = require("cloudflare")({
         console.log("New IP Address saved")
     } catch (err) {
         console.error("Unable to save new IP Address");
-        console.error(err)
-        process.exit(2)
+        console.error(err);
+        process.exit(2);
     }
 })();
