@@ -55,6 +55,7 @@ const cf = require("cloudflare")({
             });
         });
     });
+
     try {
         fs.writeFileSync("address.txt", newIPAddress);
         console.log("New IP Address saved")
@@ -63,5 +64,4 @@ const cf = require("cloudflare")({
         console.error(err)
         process.exit(2)
     }
-
 })();

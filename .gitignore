@@ -149,3 +149,4 @@ temp/
 dns.json
 secrets.json
 address.txt
+cf-log.txt
