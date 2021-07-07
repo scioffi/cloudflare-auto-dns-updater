@@ -1,0 +1,14 @@
+{
+  "name": "cloudflare-auto-dns-updater",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/scioffi/cloudflare-auto-dns-updater.git",
+  "author": "Stephen Cioffi",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cloudflare": "^2.7.0",
+    "node-fetch": "^2.6.1",
+    "public-ip": "^4.0.3"
+  }
+}
